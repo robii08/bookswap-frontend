@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import{faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 import BookCard from '../components/BookCard'
 import lock from "../assets/lock.webp";
 import { allBooksApi } from '../services/allApi'
+import { searchContext } from '../context/Contextshare'
 
 function Books() {
     const [token, setToken] = useState("")
     const [allBooks, setAllBooks] = useState([])
-    const [searchKey, setSearchKey] = useState("")
+    const {searchKey, setSearchKey} = useContext(searchContext)
 
     const getAllBooks = async(searchKey)=>{
         const result = await allBooksApi(searchKey)

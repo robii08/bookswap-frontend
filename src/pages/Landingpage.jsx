@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../App.css'
 import { Container, Button, Row, Col, Card } from "react-bootstrap";
 import fiction from '../assets/fiction.jpg';
 import fantasy from '../assets/fantasy.webp';
 import edu from '../assets/edu.avif';
 import roma from '../assets/roma.jpeg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { homeBooksApi } from '../services/allApi';
 import { serverurl } from '../services/serverUrl';
+import { searchContext } from '../context/Contextshare';
 
 
 function Landingpage() {
   const [token,setToken]=useState('')
+  const {setSearchKey} = useContext(searchContext)
   const [homeBooks, setHomeBooks] = useState([])
+  const navigate = useNavigate()
 
   const getHomeBooks = async()=>{
     const result = await homeBooksApi()
@@ -20,6 +23,10 @@ function Landingpage() {
   }
   console.log(homeBooks);
   
+  const search=(key)=>{
+    setSearchKey(key)
+    navigate("/books")
+  }
 
   useEffect(()=>{
     if(sessionStorage.getItem("token")){
@@ -69,25 +76,25 @@ function Landingpage() {
         <Row>
           <Col md={3}>
             <Card className="text-center p-4 mb-4 position-relative d-flex justify-content-center align-items-center">
-              <Link to={'/books'}><img src={fiction} alt="z-0 position-absolute" width={"100%"} height={"200px"} className=''/></Link>
+              <img src={fiction} onClick={()=>search("fiction")} alt="z-0 position-absolute" width={"100%"} height={"200px"} className=''/>
               <Card.Title className='z-1 position-absolute text-light fs-2 '>Fiction</Card.Title>
             </Card>
           </Col>
           <Col md={3}>
             <Card className="text-center p-4 mb-4 position-relative d-flex justify-content-center align-items-center">
-              <img src={fantasy} alt="z-0 position-absolute" width={"100%"} height={"200px"} className=''/>
+              <img src={fantasy} onClick={()=>search("fantasy")} alt="z-0 position-absolute" width={"100%"} height={"200px"} className=''/>
               <Card.Title className='z-1 position-absolute text-light fs-2 '>Fantasy</Card.Title>
             </Card>
           </Col>
           <Col md={3}>
             <Card className="text-center p-4 mb-4 position-relative d-flex justify-content-center align-items-center">
-              <img src={edu} alt="z-0 position-absolute" width={"100%"} height={"200px"} className=''/>
+              <img src={edu} onClick={()=>search("educational")} alt="z-0 position-absolute" width={"100%"} height={"200px"} className=''/>
               <Card.Title className='z-1 position-absolute text-light fs-2 '>Educational</Card.Title>
             </Card>
           </Col>
           <Col md={3}>
             <Card className="text-center p-4 mb-4 position-relative d-flex justify-content-center align-items-center">
-              <img src={roma} alt="z-0 position-absolute" width={"100%"} height={"200px"} className=''/>
+              <img src={roma} onClick={()=>search("romance")} alt="z-0 position-absolute" width={"100%"} height={"200px"} className=''/>
               <Card.Title className='z-1 position-absolute text-light fs-2 '>Romance</Card.Title>
             </Card>
           </Col>

@@ -59,7 +59,7 @@ function BookDetails() {
             </div>
 
             {/* Right Column - Book Details */}
-            <div className="col-md-6 col-12 px-md-5 px-3 px-0 order-md-2 order-2">
+            <div className="col-md-6 col-12 px-md-5 px-3 py-2 px-0 order-md-2 order-2">
                 <div className="fw-bold">
                     <span className="fw-medium">Product Id: </span>{book._id}
                 </div>
@@ -75,19 +75,18 @@ function BookDetails() {
                 <h5 className="text-dark fw-bold pb-2">
                     <span className="fw-medium">Genre: </span>{book.genre}
                 </h5>
+                <h5 className="text-dark fw-bold pb-2">
+                    <span className="fw-medium">Description: </span>{book.description}
+                </h5>
 
                 {/* Buttons */}
                 <div className="d-flex flex-wrap justify-content-between mt-5">
                     <a 
                         className="btn btn-outline-danger px-md-4 w-100 w-md-auto mb-2 mb-md-0 d-flex justify-content-center align-items-center"
                     >
-                        <i className="fa-solid fa-heart me-2"></i>wishlist
+                        <i className="fa-solid fa-heart me-2"></i>Buy
                     </a>
-                    <a 
-                        className="btn btn-outline-primary w-100 w-md-auto mt-3 d-flex justify-content-center align-items-center"
-                    >
-                        <i className="fa-solid fa-cart-shopping me-2"></i>add to cart
-                    </a>
+                    
                 </div>
             </div>
         </div>
