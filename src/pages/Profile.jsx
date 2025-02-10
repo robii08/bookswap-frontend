@@ -8,12 +8,14 @@ import { Link } from 'react-router-dom'
 
 function Profile() {
   const [token, setToken] = useState("")
-
-
+  const [name, setName] = useState({})
+  console.log(name);
+  
 
   useEffect(()=>{
     if(sessionStorage.getItem("token")){
       setToken(sessionStorage.getItem("token"))
+      setName(JSON.parse(sessionStorage.getItem("existingUser")).username)
     }  
 },[])
   return (  
@@ -28,7 +30,7 @@ function Profile() {
             <div className="col-md-1"></div>
             <div className="col-md-10 bg-primary  rounded-5 p-4 d-flex align-items-center justify-content-between ">
                 <img src={profile} alt=""  className='ms-5' height={'100px'}/>
-                <h5 className='fw-bold text-light me-4'>Contact : 9447541052 </h5>
+                <h2 className='fw-bold text-light me-4'>Heyy {name} !! </h2>
             </div>
             <div className="col-md-1"></div>
             <MyBooks/> 

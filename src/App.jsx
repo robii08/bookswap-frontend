@@ -13,6 +13,7 @@ import Landingpage from './pages/Landingpage'
 import AddBooks from './pages/AddBooks'
 import EditBooks from './pages/EditBooks'
 import BookDetails from './pages/BookDetails'
+import Cart from './pages/Cart'
 
 function App() {
   
@@ -26,6 +27,7 @@ function App() {
         <Route path='/register' element={<Auth register/> }/> 
         <Route path='/login' element={<Auth/>}/> 
         <Route path='/add' element={<AddBooks/>}/>
+        <Route path='/cart' element={<Cart/>} />
         <Route path='/edit/:id' element={<EditBooks/>}/>
         <Route path='/book-details/:id' element={<BookDetails/>}/>
         <Route path='*' element={<PageNotFound/>}/> 

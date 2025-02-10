@@ -5,12 +5,14 @@ import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import './bootstrap.min.css'
 import Contextshare from './context/Contextshare.jsx'
+import { Provider } from 'react-redux'
+import store from './redux/store.js'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Contextshare>
-        <App />
+      <Provider store={store}><App /></Provider>
       </Contextshare> 
     </BrowserRouter>
   </StrictMode>,

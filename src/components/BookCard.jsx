@@ -4,8 +4,11 @@ import Card from 'react-bootstrap/Card';
 import img from "../assets/eg.jpeg"
 import { serverurl } from '../services/serverUrl';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/slices/cartSlice';
 
 function BookCard({book}) {
+  const dispatch = useDispatch()
   return (
     <>
     <div className='p-4'>
@@ -18,6 +21,7 @@ function BookCard({book}) {
               <p className='fw-medium'>Authors : <span className='text-primary'>{book.authors}</span></p>
               <p className='fw-medium'>Genre : <span className='text-primary'>{book.genre}</span></p>
             </Card.Text >
+            <button className='btn btn-primary w-100' onClick={()=>dispatch(addToCart(book))}>Add to Cart</button>
           </Card.Body>
         </Card> 
     </div>

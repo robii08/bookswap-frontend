@@ -106,7 +106,7 @@ import { useNavigate } from 'react-router-dom';
                       <input type="text" className='form-control' placeholder='Genre' value={bookDetails.genre} onChange={(e)=>{setBookDetails({...bookDetails,genre:e.target.value})}} />
                     </div>
                     <div className="mb-3">
-                      <input type="text" className='form-control' placeholder='Price' value={bookDetails.price} onChange={(e)=>{setBookDetails({...bookDetails,price:e.target.value})}} />
+                      <input type="number" className='form-control' placeholder='Price' value={bookDetails.price} onChange={(e)=>{setBookDetails({...bookDetails,price:e.target.value})}} />
                     </div>
                     <div className="mb-3">
                       <input type="text" className='form-control' placeholder='Language'  value={bookDetails.language} onChange={(e)=>{setBookDetails({...bookDetails,language:e.target.value})}}/>
