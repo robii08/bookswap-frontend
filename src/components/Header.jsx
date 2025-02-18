@@ -10,6 +10,7 @@ import {faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import Badge from 'react-bootstrap/Badge';
 import { useDispatch, useSelector } from 'react-redux';
 
+
 function Header() {
   const [token, setToken] = useState('')
   const navigate = useNavigate()
@@ -18,9 +19,7 @@ function Header() {
   const cartArray = useSelector((state)=>state.cartReducer)
 
   const logout = () =>{
-    
     sessionStorage.removeItem("token")
-    
     sessionStorage.removeItem("existingUser")
     setToken('')
     setLoginStatus(false)
@@ -28,6 +27,8 @@ function Header() {
     dispatch(emptyCart(cartArray))
   }
 
+  console.log(cartArray);
+  
 
   useEffect(()=>{
     if(sessionStorage.getItem('token')){
@@ -53,7 +54,7 @@ function Header() {
             {!token?
               <Link to={'/login'}><Button variant="light" className="ml-lg-3 ms-2">Get Started</Button></Link>
               :
-              <Link><Button onClick={logout} variant="danger" className="ml-lg-3 ms-2" > Logout<FontAwesomeIcon icon={faPowerOff} className='ms-2' /></Button></Link>
+              <Link to={'/'}><Button onClick={logout} variant="danger" className="ml-lg-3 ms-2" > Logout<FontAwesomeIcon icon={faPowerOff} className='ms-2' /></Button></Link>
             }
           </Nav>
         </Navbar.Collapse>

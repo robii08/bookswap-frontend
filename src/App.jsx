@@ -14,6 +14,8 @@ import AddBooks from './pages/AddBooks'
 import EditBooks from './pages/EditBooks'
 import BookDetails from './pages/BookDetails'
 import Cart from './pages/Cart'
+import Checkout from './pages/Checkout'
+import Payment from './pages/Payment'
 
 function App() {
   
@@ -28,10 +30,12 @@ function App() {
         <Route path='/login' element={<Auth/>}/> 
         <Route path='/add' element={<AddBooks/>}/>
         <Route path='/cart' element={<Cart/>} />
+        <Route path='/checkout' element={<Checkout/>} />
         <Route path='/edit/:id' element={<EditBooks/>}/>
         <Route path='/book-details/:id' element={<BookDetails/>}/>
         <Route path='*' element={<PageNotFound/>}/> 
-        <Route path='/profile' element={<Profile/>}/>  
+        <Route path='/profile' element={<Profile/>}/> 
+        <Route path='/payment' element={<Payment/>}/>  
       </Routes>
       <Footer/>
     </>

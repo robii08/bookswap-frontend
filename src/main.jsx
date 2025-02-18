@@ -7,12 +7,17 @@ import './bootstrap.min.css'
 import Contextshare from './context/Contextshare.jsx'
 import { Provider } from 'react-redux'
 import store from './redux/store.js'
+import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Contextshare>
-      <Provider store={store}><App /></Provider>
+      <Provider store={store}>
+        <PayPalScriptProvider options={{ clientId: "your-client-id" }}>
+          <App />
+        </PayPalScriptProvider>      
+      </Provider>
       </Contextshare> 
     </BrowserRouter>
   </StrictMode>,

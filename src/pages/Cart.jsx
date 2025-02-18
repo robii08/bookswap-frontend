@@ -9,7 +9,7 @@ import { serverurl } from '../services/serverUrl';
 import lock from "../assets/lock.webp";
 
 function Cart() {
-    const [token, setToken] = useState("")
+  const [token, setToken] = useState("")
   const cartArray = useSelector((state)=>state.cartReducer)
   console.log(cartArray);
   const dispatch = useDispatch()
@@ -26,9 +26,9 @@ function Cart() {
   
   const handleCheckout=()=>
   {
-    alert('your order placed successfully')
-    dispatch(emptyCart(cartArray))
-    navigate('/')
+    
+    sessionStorage.setItem("total",total )
+    navigate('/checkout')
   }
   useEffect(()=>{
       getTotal()
@@ -80,7 +80,7 @@ function Cart() {
                   <h3>Cart Summary</h3>
                   <h4>Total number of products : {cartArray?.length}</h4>
                   <h4>Grand Total : ₹{total} </h4>
-                  <button className='btn btn-success w-100 mt-3' onClick={handleCheckout}>checkout</button>
+                  <button onClick={handleCheckout} className='btn btn-success w-100 mt-3' >checkout</button>
                 </div>
               </div>
             </div>
