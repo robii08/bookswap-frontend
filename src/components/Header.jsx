@@ -47,9 +47,9 @@ function Header() {
         <Navbar.Toggle aria-controls="navbarResponsive" />
         <Navbar.Collapse id="navbarResponsive">
           <Nav className="ms-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/books">Buy</Nav.Link>
-            <Nav.Link href="/profile">Sell</Nav.Link>
+           <Nav.Link> <Link to={'/'} style={{textDecoration:'none'}}>Home</Link></Nav.Link>
+            <Nav.Link > <Link to={'/books'} style={{textDecoration:'none'}} >Buy </Link></Nav.Link>
+            <Nav.Link><Link to={'/profile'} style={{textDecoration:'none'}}>Sell</Link></Nav.Link>
             <Link to={'/cart'}><button className='btn btn-outline-light ml-lg-3 mx-2' > <FontAwesomeIcon icon={faCartShopping} className='me-1' /> cart <Badge bg="secondary" className='ms-1'>{cartArray?.length}</Badge></button></Link>
             {!token?
               <Link to={'/login'}><Button variant="light" className="ml-lg-3 ms-2">Get Started</Button></Link>
